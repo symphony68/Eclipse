@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dnaapa1vaye5m"]
+
+[ext_resource type="Script" uid="uid://ccj1en1e1ak2w" path="res://Scripts/fruit.gd" id="1_t6yr1"]
+[ext_resource type="Texture2D" uid="uid://dhwkepa5tarph" path="res://Assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/fruit.png" id="2_j64f1"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t6yr1"]
+polygon = PackedVector2Array(-2, -6, 0, -6, 1, -5, 3, -7, 5, -7, 5, -6, 4, -4, 5, -1, 1, 7, 0, 7, -5, -1, -1, -3, -2, -4)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ctr4"]
+radius = 5.0
+height = 12.0
+
+[node name="Fruit_volant" type="Node2D" unique_id=960651266]
+script = ExtResource("1_t6yr1")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1469058485]
+occluder = SubResource("OccluderPolygon2D_t6yr1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1926656882]
+texture = ExtResource("2_j64f1")
+region_enabled = true
+region_rect = Rect2(34, 49, 11, 15)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1228028423]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1929139100]
+shape = SubResource("CapsuleShape2D_8ctr4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

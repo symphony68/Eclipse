@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cksx8gntwr4ip"]
+
+[ext_resource type="Texture2D" uid="uid://l1dalpit0ath" path="res://Assets/brackeys_platformer_assets/brackeys_platformer_assets/Papi.png" id="1_d31lw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihgf6"]
+atlas = ExtResource("1_d31lw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcyja"]
+atlas = ExtResource("1_d31lw")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6p2tk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihgf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcyja")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[node name="Papi" type="AnimatedSprite2D" unique_id=1255797027]
+sprite_frames = SubResource("SpriteFrames_6p2tk")
+animation = &"idle"
+autoplay = "idle"
