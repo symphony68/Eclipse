@@ -37,6 +37,8 @@ sprite_frames = SubResource("SpriteFrames_5gljc")
 autoplay = "default"
 
 [node name="Killzone" parent="." unique_id=612729653 instance=ExtResource("2_aiwxb")]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=165710238]
 position = Vector2(0, 5.5)

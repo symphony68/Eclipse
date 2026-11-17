@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
-var scene_fruit = preload("res://Scenes/fruit.tscn")
 
 
 func _physics_process(delta: float) -> void:
@@ -23,15 +22,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D2.play("idle")
 		
 	if direction == 1 :
-		$AnimatedSprite2D.flip_h = false
-		$AnimatedSprite2D.play("run")
+		$AnimatedSprite2D2.flip_h = false
+		$AnimatedSprite2D2.play("run")
 		
 	if direction == -1 :
-		$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.play("run")
+		$AnimatedSprite2D2.flip_h = true
+		$AnimatedSprite2D2.play("run")
 		
 	move_and_slide()
 	

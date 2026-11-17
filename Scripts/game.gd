@@ -6,3 +6,4 @@ func _process(delta: float) -> void:
 		var instance = scene_fruit.instantiate()
 		instance.position = $Player/tir.global_position
 		add_child(instance)
+			
