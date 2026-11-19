@@ -29,6 +29,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vblni"]
 size = Vector2(10, 13)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_aiwxb"]
+properties/0/path = NodePath("AnimatedSprite2D:flip_h")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="Slime" type="Node2D" unique_id=2132040737]
 script = ExtResource("1_aiwxb")
 
@@ -51,5 +56,8 @@ target_position = Vector2(5, 0)
 [node name="RayLeft" type="RayCast2D" parent="." unique_id=1732243632]
 position = Vector2(0, 5)
 target_position = Vector2(-5, 0)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=501079789]
+replication_config = SubResource("SceneReplicationConfig_aiwxb")
 
 [connection signal="area_entered" from="Killzone" to="." method="_on_killzone_area_entered"]

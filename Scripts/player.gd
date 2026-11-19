@@ -3,9 +3,19 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
+@onready var camera: Camera2D = $Camera2D
+@rpc("authority", "call_local", "reliable")
 
-
+func teleporter_vers(nouvelle_position: Vector2) -> void:
+	global_position = nouvelle_position
+	velocity = Vector2.ZERO
+	
+func _enter_tree() -> void:
+	set_multiplayer_authority(int(str(name)))
+	
 func _physics_process(delta: float) -> void:
+	if is_multiplayer_authority():
+		$AnimatedSprite2D2.modulate = Color.SKY_BLUE
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -33,5 +43,14 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D2.play("run")
 		
 	move_and_slide()
+	
+func _ready() -> void:
+	print("Joueur : ", name, " | Mon ID : ", multiplayer.get_unique_id(), " | Autorité : ", get_multiplayer_authority())
+	if is_multiplayer_authority():
+		camera.enabled = true
+		camera.make_current()
+	else:
+		# Désactive explicitement la caméra pour les autres joueurs
+		camera.enabled = false
 	
 	

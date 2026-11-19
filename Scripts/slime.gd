@@ -4,7 +4,7 @@ extends Node2D
 @onready var Right = $RayRight
 
 var direction = 1
-var speed = 215
+@export var speed = 215
 
 func _physics_process(delta: float) -> void:
 	if Left.is_colliding() :
