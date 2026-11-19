@@ -16,7 +16,7 @@ func _on_host_pressed() -> void:
 	add_player(multiplayer.get_unique_id())
 
 func _on_join_pressed() -> void:
-	peer.create_client("localhost", 25565)
+	peer.create_client($UI/Multiplayer/VBoxContainer/LineEdit.text, 25565)
 	multiplayer.multiplayer_peer = peer
 	multiplayer_UI.hide()
 

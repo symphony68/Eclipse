@@ -413,6 +413,9 @@ size_flags_horizontal = 4
 text = "joueurs"
 script = ExtResource("6_1l0tm")
 
+[node name="LineEdit" type="LineEdit" parent="UI/Multiplayer/VBoxContainer" unique_id=1779867337]
+layout_mode = 2
+
 [node name="Area2D" type="StaticBody2D" parent="." unique_id=546864914]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1200656489]
