@@ -42,3 +42,4 @@ func _process(delta: float) -> void:
 	if nombres_de_joueurs_connectés >= $"UI/Multiplayer/VBoxContainer/Nombre de joueur".value :
 		$Area2D/CollisionShape2D.disabled = true
 	
+	
