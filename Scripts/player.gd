@@ -4,10 +4,7 @@ extends CharacterBody2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 @onready var camera: Camera2D = $Camera2D
-@onready var label = %Label
-@onready var fruit = preload("res://Scenes/fruit.tscn")
 @rpc("authority", "call_local", "reliable")
-
 
 func teleporter_vers(nouvelle_position: Vector2) -> void:
 	global_position = nouvelle_position
@@ -15,12 +12,7 @@ func teleporter_vers(nouvelle_position: Vector2) -> void:
 	
 func _enter_tree() -> void:
 	set_multiplayer_authority(int(str(name)))
-	var label := Label.new()
-	label.text = $UI/Multiplayer/VBoxContainer/Nom.text
-	label.position = Vector2(0, 0)
-	add_child(label)
-
-
+	
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
 		$AnimatedSprite2D2.modulate = Color.SKY_BLUE
@@ -60,6 +52,5 @@ func _ready() -> void:
 	else:
 		# Désactive explicitement la caméra pour les autres joueurs
 		camera.enabled = false
-		
 	
 	
